@@ -9,7 +9,7 @@ import UIKit
 
 class MoviesListDataSource: NSObject, UITableViewDataSource {
     let sorting: MoviesSortType
-    var movies = [Movie]()
+    public private(set) var movies = [Movie]()
     
     let endpoints = Endpoints()
     

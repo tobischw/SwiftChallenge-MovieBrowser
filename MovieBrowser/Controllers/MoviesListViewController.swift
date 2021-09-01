@@ -7,8 +7,10 @@
 
 import UIKit
 
-class MoviesListViewController: UITableViewController {
+class MoviesListViewController: UITableViewController, Storyboarded {
     let dataSource = MoviesListDataSource(sorting: .popular)
+    
+    weak var coordinator: MainCoordinator?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +24,16 @@ class MoviesListViewController: UITableViewController {
             }
         }
     }
-    
+}
+
+extension MoviesListViewController {
     override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let movie = dataSource.movies[indexPath.row]
+        coordinator?.showDetail(for: movie)
     }
 }
 
