@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7UF-5N-eaG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19115.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.4"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,7 +11,7 @@
         <!--Top Movies-->
         <scene sceneID="S3i-6J-tdZ">
             <objects>
-                <tableViewController id="BsH-1O-rhm" customClass="MoviesListViewController" customModule="MovieBrowser" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MoviesListViewController" id="BsH-1O-rhm" customClass="MoviesListViewController" customModule="MovieBrowser" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="oVB-Kt-HFg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -70,51 +70,42 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d4k-Eq-Uml" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2676.811594202899" y="104.46428571428571"/>
+            <point key="canvasLocation" x="1822" y="105"/>
         </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="lEM-sa-JMc">
+        <!--Movie Detail View Controller-->
+        <scene sceneID="px0-sx-lqJ">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="7UF-5N-eaG" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="U0H-SI-ZpB"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Z3q-FK-pd8">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
+                <viewController storyboardIdentifier="MovieDetailViewController" id="e4H-tz-vMv" customClass="MovieDetailViewController" customModule="MovieBrowser" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LMU-iC-V1X">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNg-Cm-q1l">
+                                <rect key="frame" x="20" y="104" width="374" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zI5-6J-gVg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="HNg-Cm-q1l" firstAttribute="leading" secondItem="zI5-6J-gVg" secondAttribute="leading" constant="20" id="Kri-7V-tx3"/>
+                            <constraint firstItem="HNg-Cm-q1l" firstAttribute="top" secondItem="zI5-6J-gVg" secondAttribute="top" constant="16" id="Mud-Sn-pBs"/>
+                            <constraint firstItem="zI5-6J-gVg" firstAttribute="trailing" secondItem="HNg-Cm-q1l" secondAttribute="trailing" constant="20" id="ZAI-qt-4gO"/>
+                        </constraints>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <segue destination="VU0-lO-okG" kind="relationship" relationship="viewControllers" id="VU8-3l-7qy"/>
+                        <outlet property="descriptionLabel" destination="HNg-Cm-q1l" id="ZgA-sn-y2C"/>
                     </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fGr-TE-sQv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EW5-RL-bRg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="856.52173913043487" y="104.46428571428571"/>
-        </scene>
-        <!--Top Movies-->
-        <scene sceneID="2to-KC-K71">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VU0-lO-okG" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Top Movies" id="EYU-7E-9Um">
-                        <imageReference key="selectedImage" image="heart" catalog="system"/>
-                    </tabBarItem>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NqS-B9-6YD">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BsH-1O-rhm" kind="relationship" relationship="rootViewController" id="oMu-XC-HlB"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="J7z-Po-0Jw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1766.6666666666667" y="104.46428571428571"/>
+            <point key="canvasLocation" x="2792.753623188406" y="103.79464285714285"/>
         </scene>
     </scenes>
     <resources>
-        <image name="heart" catalog="system" width="128" height="109"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
